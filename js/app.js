@@ -1,4 +1,15 @@
 (function () {
+  const QUESTIONS_PER_ROUND = 3;
+
+  function shuffle(array) {
+    const result = array.slice();
+    for (let i = result.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [result[i], result[j]] = [result[j], result[i]];
+    }
+    return result;
+  }
+
   const params = new URLSearchParams(window.location.search);
   const setKey = params.get("set") === "injury" ? "injury" : "death";
 
@@ -19,7 +30,7 @@
   document.getElementById("setTitle").textContent = current.title;
   document.getElementById("setDesc").textContent = current.desc;
 
-  const questions = current.questions;
+  const questions = shuffle(current.questions).slice(0, QUESTIONS_PER_ROUND);
   let index = 0;
   let score = 0;
   let answered = false;
