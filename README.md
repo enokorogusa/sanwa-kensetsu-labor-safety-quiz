@@ -23,9 +23,9 @@ css/style.css                       … 共通スタイル
 js/app.js                           … クイズ進行ロジック
 data/questions_death.js             … 死亡者数編 50問
 data/questions_injury.js            … 傷病者数編 50問
-data/category_images.js             … 事故の型（カテゴリ）ごとのイラスト対応表
+data/category_images.js             … 事故の型（カテゴリ）ごとのイラスト対応表・出典情報
 assets/michiharo_placeholder.svg    … 仮マスコット（後述の通り差し替え可能）
-assets/illustrations/               … 事故の型ごとのオリジナルイラスト（14種類）
+assets/illustrations_mhlw/          … 事故の型ごとのイラスト（14種類、出典は下記参照）
 ```
 
 ## 出題の考え方
@@ -58,11 +58,34 @@ assets/illustrations/               … 事故の型ごとのオリジナルイ�
 
 ## 問題文のイラストについて
 
-各問題の上には、事故の型（墜落・転落、はさまれ・巻き込まれ、など14種類）ごとのイラストを表示しています。
+各問題の上には、事故の型（墜落・転落、はさまれ・巻き込まれ、など14種類）ごとのイラストを表示しています。イラストは1問ごとではなく「事故の型」ごとに1枚を使い回しており、`data/category_images.js` にカテゴリ名と画像ファイル・出典情報の対応表がまとまっています。
 
-厚生労働省「職場のあんぜんサイト」に掲載されているイラストは、サイトのフッターに「All Rights Reserved」とだけ記載されており、自由な転載を認める規約が見当たらなかったため、**著作権上のリスクを避け、厚労省の絵とは全く別のオリジナルの簡易イラストを新規作成して使用しています。**
+イラストは、厚生労働省「職場のあんぜんサイト ヒヤリ・ハット事例」（https://anzeninfo.mhlw.go.jp/hiyari/anrdh00.html）に掲載されている実際のイラストを、加工せずそのまま使用しています。厚生労働省のコンテンツ利用規約（政府標準利用規約 PDL1.0、https://www.mhlw.go.jp/chosakuken/ ）に基づき、出典として個別ページのURLを画面上に常時表示しています。三和建設・本クイズを厚生労働省が推奨・監修しているものではありません。
 
-イラストは1問ごとではなく「事故の型」ごとに1枚を使い回しており、`data/category_images.js` にカテゴリ名と画像ファイルの対応表がまとまっています。イラストを差し替えたい場合は、`assets/illustrations/` フォルダ内の該当ファイルを同じファイル名で上書きするか、`category_images.js` 内のパスを書き換えるだけでOKです（各問題データを直接編集する必要はありません）。
+イラストを差し替えたい場合は、`assets/illustrations_mhlw/` フォルダ内の該当ファイルを同じファイル名で上書きするか、`category_images.js` 内の `path` を書き換えるだけでOKです（各問題データを直接編集する必要はありません）。
+
+### イラスト出典一覧（2026年8月6日利用）
+
+| 事故の型 | 出典ページ |
+|---|---|
+| 墜落・転落 | https://anzeninfo.mhlw.go.jp/hiyari/hiy_0398.html |
+| 崩壊・倒壊 | https://anzeninfo.mhlw.go.jp/hiyari/hiy_0151.html |
+| はさまれ・巻き込まれ | https://anzeninfo.mhlw.go.jp/hiyari/hiy_0342.html |
+| 激突され | https://anzeninfo.mhlw.go.jp/hiyari/hiy_0267.html |
+| 交通事故（道路） | https://anzeninfo.mhlw.go.jp/hiyari/hiy_0455.html |
+| 飛来・落下 | https://anzeninfo.mhlw.go.jp/hiyari/hiy_0434.html |
+| 高温・低温物との接触 | https://anzeninfo.mhlw.go.jp/hiyari/hiy_0396.html |
+| 感電 | https://anzeninfo.mhlw.go.jp/hiyari/hiy_0152.html |
+| 転倒 | https://anzeninfo.mhlw.go.jp/hiyari/hiy_0286.html |
+| おぼれ | https://anzeninfo.mhlw.go.jp/hiyari/hiy_0463.html |
+| 切れ・こすれ | https://anzeninfo.mhlw.go.jp/hiyari/hiy_0076.html |
+| 動作の反動・無理な動作 | https://anzeninfo.mhlw.go.jp/hiyari/hiy_0089.html |
+| 激突 | https://anzeninfo.mhlw.go.jp/hiyari/hiy_0272.html |
+| 踏み抜き | https://anzeninfo.mhlw.go.jp/hiyari/hiy_0362.html |
+
+すべて厚生労働省「職場のあんぜんサイト ヒヤリ・ハット事例」からの引用です（クイズの問題文・選択肢・解説は上記事例をそのまま使ったものではなく、教材用に一般化・創作したものです。イラストと問題文の状況が完全に一致しない場合があります）。
+
+※このイラストの著作権の扱いについては、厚労省本体サイトの標準利用規約に基づく一般的な判断で運用しており、個別の法的保証ではありません。有料販売・広告利用・一般公開など社内研修を超える用途で使う場合は、事前に「職場のあんぜんサイト」の問い合わせ窓口に確認することをおすすめします。
 
 ## 免責事項
 

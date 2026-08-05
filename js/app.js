@@ -41,8 +41,11 @@
   const progressLabel = document.getElementById("progressLabel");
   const categoryTag = document.getElementById("categoryTag");
   const questionImage = document.getElementById("questionImage");
+  const imageCredit = document.getElementById("imageCredit");
   const questionText = document.getElementById("questionText");
   const categoryImages = window.CATEGORY_IMAGES || {};
+  const imageSourceLabel = window.CATEGORY_IMAGE_SOURCE_LABEL || "";
+  const imageAccessedOn = window.CATEGORY_IMAGE_ACCESSED_ON || "";
   const choicesEl = document.getElementById("choices");
   const resultPanel = document.getElementById("resultPanel");
   const judgeText = document.getElementById("judgeText");
@@ -67,14 +70,32 @@
     progressLabel.textContent = (index + 1) + " / " + questions.length + "問";
     categoryTag.textContent = q.category || "";
 
-    const imageSrc = categoryImages[q.category];
-    if (imageSrc) {
-      questionImage.src = imageSrc;
-      questionImage.alt = q.category + "のイメージ図";
+    const imageInfo = categoryImages[q.category];
+    if (imageInfo && imageInfo.path) {
+      questionImage.src = imageInfo.path;
+      questionImage.alt = imageInfo.sourceTitle || (q.category + "のイメージ図");
       questionImage.style.display = "block";
+
+      imageCredit.innerHTML = "";
+      const label = document.createTextNode((imageSourceLabel || "") + "　");
+      imageCredit.appendChild(label);
+      if (imageInfo.sourceUrl) {
+        const link = document.createElement("a");
+        link.href = imageInfo.sourceUrl;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = imageInfo.sourceUrl;
+        imageCredit.appendChild(link);
+      }
+      if (imageAccessedOn) {
+        imageCredit.appendChild(document.createTextNode("（" + imageAccessedOn + "）"));
+      }
+      imageCredit.style.display = "block";
     } else {
       questionImage.removeAttribute("src");
       questionImage.style.display = "none";
+      imageCredit.style.display = "none";
+      imageCredit.textContent = "";
     }
 
     questionText.textContent = q.question;
