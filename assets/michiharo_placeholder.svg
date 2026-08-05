@@ -1,0 +1,31 @@
+<svg viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ミチハロくん（仮キャラクター）">
+  <!-- 仮のマスコットキャラクターです。三和建設の正式なミチハロくん画像に差し替え予定。 -->
+  <ellipse cx="100" cy="205" rx="55" ry="10" fill="#000000" opacity="0.08"/>
+
+  <!-- body -->
+  <circle cx="100" cy="120" r="70" fill="#FFA733"/>
+  <circle cx="100" cy="120" r="70" fill="none" stroke="#E08A1E" stroke-width="4"/>
+
+  <!-- safety vest stripe -->
+  <path d="M45 140 Q100 165 155 140 L150 160 Q100 182 50 160 Z" fill="#FFFFFF" opacity="0.9"/>
+
+  <!-- arms -->
+  <circle cx="34" cy="130" r="14" fill="#FFA733" stroke="#E08A1E" stroke-width="3"/>
+  <circle cx="166" cy="115" r="14" fill="#FFA733" stroke="#E08A1E" stroke-width="3"/>
+
+  <!-- face -->
+  <circle cx="78" cy="112" r="8" fill="#3B2A1A"/>
+  <circle cx="122" cy="112" r="8" fill="#3B2A1A"/>
+  <path d="M75 140 Q100 158 125 140" stroke="#3B2A1A" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <circle cx="62" cy="128" r="9" fill="#FF7A5C" opacity="0.5"/>
+  <circle cx="138" cy="128" r="9" fill="#FF7A5C" opacity="0.5"/>
+
+  <!-- helmet -->
+  <path d="M32 92 A68 68 0 0 1 168 92 L168 100 L32 100 Z" fill="#FFD447" stroke="#E0AC1E" stroke-width="4"/>
+  <rect x="20" y="96" width="160" height="14" rx="7" fill="#FFD447" stroke="#E0AC1E" stroke-width="4"/>
+  <rect x="92" y="48" width="16" height="14" rx="3" fill="#FFD447" stroke="#E0AC1E" stroke-width="3"/>
+
+  <!-- label badge -->
+  <rect x="70" y="150" width="60" height="20" rx="10" fill="#FFFFFF" stroke="#E08A1E" stroke-width="2"/>
+  <text x="100" y="164" font-family="sans-serif" font-size="11" fill="#E08A1E" text-anchor="middle" font-weight="bold">仮</text>
+</svg>

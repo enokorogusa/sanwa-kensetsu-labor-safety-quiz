@@ -1,0 +1,14 @@
+<svg viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="動作の反動・無理な動作のイメージ図">
+  <rect x="0" y="0" width="240" height="200" rx="16" fill="#F0EDE0"/>
+  <rect x="95" y="120" width="50" height="35" rx="4" fill="#8C6B42"/>
+  <circle cx="110" cy="95" r="10" fill="#3B2A1A"/>
+  <path d="M103 85 A7 5 0 0 1 117 85 Z" fill="#FFD447"/>
+  <path d="M110 105 Q135 115 130 135" stroke="#3B2A1A" stroke-width="9" fill="none" stroke-linecap="round"/>
+  <line x1="130" y1="135" x2="145" y2="128" stroke="#3B2A1A" stroke-width="7" stroke-linecap="round"/>
+  <line x1="130" y1="135" x2="150" y2="140" stroke="#3B2A1A" stroke-width="7" stroke-linecap="round"/>
+  <line x1="110" y1="118" x2="95" y2="150" stroke="#3B2A1A" stroke-width="7" stroke-linecap="round"/>
+  <line x1="110" y1="118" x2="122" y2="150" stroke="#3B2A1A" stroke-width="7" stroke-linecap="round"/>
+  <g stroke="#D0453C" stroke-width="3" fill="none">
+    <path d="M65 100 l8 8 l-4 4 l8 8"/>
+  </g>
+</svg>

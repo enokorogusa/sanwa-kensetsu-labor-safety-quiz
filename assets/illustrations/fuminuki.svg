@@ -1,0 +1,16 @@
+<svg viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="踏み抜きのイメージ図">
+  <rect x="0" y="0" width="240" height="200" rx="16" fill="#F2EEE2"/>
+  <rect x="40" y="140" width="160" height="16" fill="#B08A5A"/>
+  <ellipse cx="120" cy="148" rx="26" ry="10" fill="#3B2A1A"/>
+  <g stroke="#8C6B42" stroke-width="2">
+    <line x1="100" y1="140" x2="90" y2="156"/>
+    <line x1="140" y1="140" x2="150" y2="156"/>
+  </g>
+  <circle cx="120" cy="95" r="11" fill="#3B2A1A"/>
+  <path d="M112 84 A8 6 0 0 1 128 84 Z" fill="#FFD447"/>
+  <line x1="120" y1="106" x2="118" y2="138" stroke="#3B2A1A" stroke-width="8" stroke-linecap="round"/>
+  <line x1="120" y1="112" x2="102" y2="105" stroke="#3B2A1A" stroke-width="6" stroke-linecap="round"/>
+  <line x1="120" y1="112" x2="138" y2="105" stroke="#3B2A1A" stroke-width="6" stroke-linecap="round"/>
+  <line x1="118" y1="138" x2="100" y2="150" stroke="#3B2A1A" stroke-width="7" stroke-linecap="round"/>
+  <line x1="118" y1="138" x2="128" y2="160" stroke="#3B2A1A" stroke-width="7" stroke-linecap="round"/>
+</svg>

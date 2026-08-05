@@ -1,0 +1,19 @@
+<svg viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="転倒のイメージ図">
+  <rect x="0" y="0" width="240" height="200" rx="16" fill="#EAF1E8"/>
+  <ellipse cx="120" cy="170" rx="80" ry="10" fill="#000000" opacity="0.06"/>
+  <circle cx="150" cy="120" r="11" fill="#3B2A1A"/>
+  <path d="M142 109 A8 6 0 0 1 158 109 Z" fill="#FFD447"/>
+  <g stroke="#3B2A1A" stroke-width="8" stroke-linecap="round">
+    <line x1="150" y1="131" x2="105" y2="150"/>
+    <line x1="105" y1="150" x2="80" y2="145"/>
+    <line x1="150" y1="140" x2="175" y2="120"/>
+    <line x1="150" y1="140" x2="170" y2="150"/>
+  </g>
+  <g stroke="#2C6E9E" stroke-width="3" stroke-dasharray="4 4">
+    <path d="M60 150 Q75 135 90 150"/>
+    <path d="M55 160 Q70 145 85 160"/>
+  </g>
+  <g fill="#D0453C">
+    <polygon points="190,90 198,90 194,80"/>
+  </g>
+</svg>

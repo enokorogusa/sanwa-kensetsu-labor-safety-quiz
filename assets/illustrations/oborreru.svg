@@ -1,0 +1,14 @@
+<svg viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="おぼれのイメージ図">
+  <rect x="0" y="0" width="240" height="200" rx="16" fill="#E4F1F7"/>
+  <rect x="0" y="130" width="240" height="50" fill="#6FA9C9" opacity="0.55"/>
+  <path d="M0 130 Q20 120 40 130 T80 130 T120 130 T160 130 T200 130 T240 130 V150 H0 Z" fill="#4C8FB3" opacity="0.6"/>
+  <circle cx="120" cy="105" r="11" fill="#3B2A1A"/>
+  <path d="M112 94 A8 6 0 0 1 128 94 Z" fill="#FFD447"/>
+  <line x1="120" y1="116" x2="120" y2="132" stroke="#3B2A1A" stroke-width="8" stroke-linecap="round"/>
+  <line x1="120" y1="120" x2="140" y2="100" stroke="#3B2A1A" stroke-width="7" stroke-linecap="round"/>
+  <line x1="120" y1="126" x2="102" y2="135" stroke="#3B2A1A" stroke-width="6" stroke-linecap="round"/>
+  <g fill="#D0453C">
+    <polygon points="60,70 68,70 64,60"/>
+  </g>
+  <path d="M0 165 Q20 155 40 165 T80 165 T120 165 T160 165 T200 165 T240 165" stroke="#2C6E9E" stroke-width="3" fill="none" opacity="0.5"/>
+</svg>
