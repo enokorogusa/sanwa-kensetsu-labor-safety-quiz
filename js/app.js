@@ -1,19 +1,8 @@
 (function () {
-  const QUESTIONS_PER_ROUND = 3;
+  document.getElementById("setTitle").textContent = "建設現場の労働災害クイズ【レビュー用】";
+  document.getElementById("setDesc").textContent = "全50問を作成順（Q1〜Q50）にすべて表示します。上司確認・修正指示用のビルドです。";
 
-  function shuffle(array) {
-    const result = array.slice();
-    for (let i = result.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [result[i], result[j]] = [result[j], result[i]];
-    }
-    return result;
-  }
-
-  document.getElementById("setTitle").textContent = "建設現場の労働災害クイズ";
-  document.getElementById("setDesc").textContent = "労働災害の「死亡者数」「休業4日以上の死傷者数」がともに多い事故の型を中心に出題しています。";
-
-  const questions = shuffle(window.QUESTIONS || []).slice(0, QUESTIONS_PER_ROUND);
+  const questions = window.QUESTIONS || [];
   let index = 0;
   let score = 0;
   let answered = false;
@@ -22,6 +11,7 @@
   const finishScreen = document.getElementById("finishScreen");
   const progressFill = document.getElementById("progressFill");
   const progressLabel = document.getElementById("progressLabel");
+  const questionNumberTag = document.getElementById("questionNumberTag");
   const categoryTag = document.getElementById("categoryTag");
   const questionImage = document.getElementById("questionImage");
   const imageCredit = document.getElementById("imageCredit");
@@ -59,7 +49,8 @@
 
     const q = questions[index];
     progressFill.style.width = Math.round((index / questions.length) * 100) + "%";
-    progressLabel.textContent = (index + 1) + " / " + questions.length + "問";
+    progressLabel.textContent = "Q" + (index + 1) + " / " + questions.length;
+    questionNumberTag.textContent = "Q" + (index + 1);
     categoryTag.textContent = q.category || "";
 
     const imageInfo = categoryImages[q.category];
