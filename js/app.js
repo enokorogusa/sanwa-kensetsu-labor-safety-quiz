@@ -10,27 +10,10 @@
     return result;
   }
 
-  const params = new URLSearchParams(window.location.search);
-  const setKey = params.get("set") === "injury" ? "injury" : "death";
+  document.getElementById("setTitle").textContent = "建設現場の労働災害クイズ";
+  document.getElementById("setDesc").textContent = "労働災害の「死亡者数」「休業4日以上の死傷者数」がともに多い事故の型を中心に出題しています。";
 
-  const SET_INFO = {
-    death: {
-      title: "死亡者数編",
-      desc: "労働災害の「死亡者数」が多い事故の型を中心に出題しています。",
-      questions: window.QUESTIONS_DEATH || []
-    },
-    injury: {
-      title: "傷病者数編",
-      desc: "「休業4日以上の死傷者数」が多い事故の型を中心に出題しています。",
-      questions: window.QUESTIONS_INJURY || []
-    }
-  };
-
-  const current = SET_INFO[setKey];
-  document.getElementById("setTitle").textContent = current.title;
-  document.getElementById("setDesc").textContent = current.desc;
-
-  const questions = shuffle(current.questions).slice(0, QUESTIONS_PER_ROUND);
+  const questions = shuffle(window.QUESTIONS || []).slice(0, QUESTIONS_PER_ROUND);
   let index = 0;
   let score = 0;
   let answered = false;
