@@ -38,6 +38,10 @@
   const explanationText = document.getElementById("explanationText");
   const sourceNote = document.getElementById("sourceNote");
   const nextBtn = document.getElementById("nextBtn");
+  const mascotImage = document.getElementById("mascotImage");
+
+  const MASCOT_CORRECT = "ミチハロ君奈良観光中.png";
+  const MASCOT_WRONG = "回答ミチハロ君 (002).png";
 
   function renderQuestion() {
     answered = false;
@@ -110,6 +114,9 @@
 
     judgeBanner.textContent = isCorrect ? "○ 正解！" : "× 不正解";
     judgeBanner.className = "judge-banner " + (isCorrect ? "correct" : "wrong");
+
+    mascotImage.src = isCorrect ? MASCOT_CORRECT : MASCOT_WRONG;
+    mascotImage.alt = isCorrect ? "ミチハロくん（正解）" : "ミチハロくん（不正解）";
 
     if (isCorrect) {
       answerSummary.innerHTML = "";

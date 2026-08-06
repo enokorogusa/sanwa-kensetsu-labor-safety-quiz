@@ -56,9 +56,10 @@ header.app-header p {
 }
 
 .mascot-intro img {
-  width: 84px;
+  width: 96px;
   height: auto;
   flex-shrink: 0;
+  border-radius: 10px;
 }
 
 .speech-bubble {
@@ -290,9 +291,10 @@ header.app-header p {
 }
 
 .mascot-comment img {
-  width: 52px;
+  width: 68px;
   height: auto;
   flex-shrink: 0;
+  border-radius: 8px;
 }
 
 .mascot-comment .speech-bubble {
