@@ -30,15 +30,20 @@
   const imageSourceLabel = window.CATEGORY_IMAGE_SOURCE_LABEL || "";
   const imageAccessedOn = window.CATEGORY_IMAGE_ACCESSED_ON || "";
   const choicesEl = document.getElementById("choices");
-  const resultPanel = document.getElementById("resultPanel");
-  const judgeText = document.getElementById("judgeText");
+  const questionView = document.getElementById("questionView");
+  const answerView = document.getElementById("answerView");
+  const questionRecap = document.getElementById("questionRecap");
+  const judgeBanner = document.getElementById("judgeBanner");
+  const answerSummary = document.getElementById("answerSummary");
   const explanationText = document.getElementById("explanationText");
   const sourceNote = document.getElementById("sourceNote");
   const nextBtn = document.getElementById("nextBtn");
 
   function renderQuestion() {
     answered = false;
-    resultPanel.classList.remove("show");
+    questionView.style.display = "block";
+    answerView.style.display = "none";
+    window.scrollTo(0, 0);
 
     if (questions.length === 0) {
       questionText.textContent = "この出題セットの問題データがまだ登録されていません。";
@@ -97,24 +102,41 @@
     if (answered) return;
     answered = true;
     const q = questions[index];
-    const buttons = choicesEl.querySelectorAll(".choice-btn");
-    buttons.forEach(function (b) { b.disabled = true; });
 
     const isCorrect = i === q.answerIndex;
     if (isCorrect) score++;
 
-    buttons[q.answerIndex].classList.add("correct");
-    if (!isCorrect) {
-      buttons[i].classList.add("wrong");
+    questionRecap.textContent = q.question;
+
+    judgeBanner.textContent = isCorrect ? "○ 正解！" : "× 不正解";
+    judgeBanner.className = "judge-banner " + (isCorrect ? "correct" : "wrong");
+
+    if (isCorrect) {
+      answerSummary.innerHTML = "";
+      const correctLine = document.createElement("p");
+      correctLine.className = "answer-correct";
+      correctLine.textContent = "正解：" + q.choices[q.answerIndex];
+      answerSummary.appendChild(correctLine);
+    } else {
+      answerSummary.innerHTML = "";
+      const yourLine = document.createElement("p");
+      yourLine.className = "answer-yours";
+      yourLine.textContent = "あなたの回答：" + q.choices[i];
+      const correctLine = document.createElement("p");
+      correctLine.className = "answer-correct";
+      correctLine.textContent = "正解：" + q.choices[q.answerIndex];
+      answerSummary.appendChild(yourLine);
+      answerSummary.appendChild(correctLine);
     }
 
-    judgeText.textContent = isCorrect ? "○ 正解！" : "× 不正解";
-    judgeText.className = "judge " + (isCorrect ? "correct-text" : "wrong-text");
     explanationText.textContent = q.explanation || "";
     sourceNote.textContent = q.source ? ("出典：" + q.source) : "";
 
-    resultPanel.classList.add("show");
     nextBtn.textContent = (index === questions.length - 1) ? "結果を見る" : "次の問題へ";
+
+    questionView.style.display = "none";
+    answerView.style.display = "block";
+    window.scrollTo(0, 0);
   }
 
   function goNext() {
