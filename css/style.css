@@ -69,6 +69,7 @@ header.app-header p {
   border-radius: 12px;
   padding: clamp(12px, 1.6vw, 20px) clamp(16px, 2vw, 24px);
   font-size: clamp(1.2rem, 1.7vw, 1.8rem);
+  font-weight: 700;
 }
 
 .speech-bubble::before {
@@ -369,6 +370,7 @@ header.app-header p {
 
 .finish-screen p {
   font-size: clamp(1.5rem, 2.2vw, 2.2rem);
+  font-weight: 700;
 }
 
 .finish-screen .score {
