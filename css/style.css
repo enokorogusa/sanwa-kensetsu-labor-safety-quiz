@@ -23,40 +23,41 @@ body {
 }
 
 .page {
-  max-width: 1040px;
+  max-width: 1760px;
+  width: 96%;
   margin: 0 auto;
-  padding: 20px 16px 32px;
+  padding: clamp(10px, 1.6vmin, 24px) clamp(12px, 2vw, 32px) clamp(16px, 2vmin, 32px);
 }
 
 header.app-header {
   text-align: center;
-  margin-bottom: 14px;
+  margin-bottom: clamp(10px, 1.6vmin, 20px);
 }
 
 header.app-header h1 {
-  font-size: 1.4rem;
-  margin: 8px 0 4px;
+  font-size: clamp(1.6rem, 3.4vmin, 2.6rem);
+  margin: 6px 0 4px;
 }
 
 header.app-header p {
   margin: 0;
-  font-size: 0.85rem;
+  font-size: clamp(1rem, 1.8vmin, 1.3rem);
   color: #7a6a55;
 }
 
 .mascot-intro {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: clamp(16px, 2.5vw, 32px);
   background: var(--color-card);
   border-radius: var(--radius);
-  padding: 16px;
-  margin-bottom: 24px;
+  padding: clamp(16px, 2.5vw, 32px);
+  margin-bottom: clamp(20px, 3vw, 36px);
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 
 .mascot-intro img {
-  width: 96px;
+  width: clamp(100px, 10vw, 160px);
   height: auto;
   flex-shrink: 0;
   border-radius: 10px;
@@ -66,8 +67,8 @@ header.app-header p {
   position: relative;
   background: #FFF3DC;
   border-radius: 12px;
-  padding: 10px 14px;
-  font-size: 0.9rem;
+  padding: clamp(12px, 1.6vw, 20px) clamp(16px, 2vw, 24px);
+  font-size: clamp(1.2rem, 1.7vw, 1.8rem);
 }
 
 .speech-bubble::before {
@@ -89,7 +90,7 @@ header.app-header p {
   display: block;
   background: var(--color-card);
   border-radius: var(--radius);
-  padding: 20px;
+  padding: clamp(20px, 2.5vw, 32px);
   text-decoration: none;
   color: var(--color-text);
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);
@@ -103,33 +104,33 @@ header.app-header p {
 }
 
 .mode-card h2 {
-  margin: 0 0 6px;
-  font-size: 1.1rem;
+  margin: 0 0 8px;
+  font-size: clamp(1.5rem, 2.2vw, 2.2rem);
   color: var(--color-main-dark);
 }
 
 .mode-card p {
   margin: 0;
-  font-size: 0.85rem;
+  font-size: clamp(1.1rem, 1.5vw, 1.5rem);
   color: #6b5c48;
 }
 
 .mode-card .count-badge {
   display: inline-block;
   margin-top: 10px;
-  font-size: 0.75rem;
+  font-size: clamp(1rem, 1.2vw, 1.3rem);
   background: var(--color-main);
   color: #fff;
-  padding: 3px 10px;
+  padding: 4px 14px;
   border-radius: 999px;
 }
 
 .progress-bar {
-  height: 8px;
+  height: clamp(10px, 1.2vw, 16px);
   background: #eee0c8;
   border-radius: 999px;
   overflow: hidden;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .progress-bar-fill {
@@ -139,26 +140,26 @@ header.app-header p {
 }
 
 .progress-label {
-  font-size: 0.8rem;
+  font-size: clamp(0.95rem, 1.6vmin, 1.3rem);
   color: #7a6a55;
   text-align: right;
-  margin-bottom: 16px;
+  margin-bottom: clamp(10px, 1.4vmin, 18px);
 }
 
 .question-card {
   display: flex;
   align-items: flex-start;
-  gap: 18px;
+  gap: clamp(20px, 2.4vmin, 36px);
   background: var(--color-card);
   border-radius: var(--radius);
-  padding: 18px 20px;
+  padding: clamp(18px, 2.4vmin, 36px);
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);
   margin-bottom: 16px;
 }
 
 .card-media {
-  flex: 0 0 250px;
-  width: 250px;
+  flex: 0 0 clamp(260px, 24vw, 380px);
+  width: clamp(260px, 24vw, 380px);
 }
 
 .card-content {
@@ -168,12 +169,13 @@ header.app-header p {
 
 .category-tag {
   display: inline-block;
-  font-size: 0.75rem;
+  font-size: clamp(0.95rem, 1.8vmin, 1.25rem);
   background: var(--color-accent);
   color: #fff;
-  padding: 2px 10px;
+  padding: 4px 16px;
   border-radius: 999px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
+  font-weight: bold;
 }
 
 .question-image {
@@ -190,14 +192,14 @@ header.app-header p {
 
 .image-credit {
   display: none;
-  font-size: 0.68rem;
+  font-size: clamp(0.8rem, 1.3vmin, 1rem);
   color: #9a8b74;
   text-align: left;
   margin: 6px 0 0;
   word-break: break-all;
 }
 
-@media (max-width: 560px) {
+@media (max-width: 720px) {
   .question-card {
     flex-direction: column;
   }
@@ -212,24 +214,27 @@ header.app-header p {
 }
 
 .question-text {
-  font-size: 1.05rem;
-  font-weight: bold;
-  margin: 0 0 16px;
+  font-size: clamp(1.5rem, 3.4vmin, 2.3rem);
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 0 0 18px;
   white-space: pre-wrap;
 }
 
 .choices {
   display: grid;
-  gap: 10px;
+  gap: 12px;
 }
 
 .choice-btn {
   text-align: left;
-  padding: 12px 14px;
-  border-radius: 12px;
-  border: 2px solid #e6dac0;
+  padding: clamp(12px, 1.6vmin, 18px) clamp(16px, 1.8vmin, 22px);
+  border-radius: 14px;
+  border: 3px solid #e6dac0;
   background: #fffefb;
-  font-size: 0.95rem;
+  font-size: clamp(1.15rem, 2.2vmin, 1.6rem);
+  font-weight: 600;
+  line-height: 1.4;
   cursor: pointer;
   color: var(--color-text);
 }
@@ -263,18 +268,19 @@ header.app-header p {
 }
 
 .question-recap {
-  font-size: 0.8rem;
+  font-size: clamp(1rem, 1.8vmin, 1.3rem);
   color: #9a8b74;
+  font-weight: 600;
   margin: 0 0 12px;
   white-space: pre-wrap;
 }
 
 .judge-banner {
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: clamp(1.8rem, 4.5vmin, 3rem);
+  font-weight: 800;
   text-align: center;
-  padding: 10px 12px;
-  border-radius: 12px;
+  padding: clamp(10px, 1.8vmin, 18px) 16px;
+  border-radius: 16px;
   margin-bottom: 12px;
 }
 
@@ -289,38 +295,40 @@ header.app-header p {
 }
 
 .answer-summary {
-  margin: 0 0 4px;
+  margin: 0 0 6px;
 }
 
 .answer-summary .answer-yours {
-  font-size: 0.9rem;
+  font-size: clamp(1.1rem, 2vmin, 1.5rem);
   color: #9a8b74;
   margin: 0 0 4px;
 }
 
 .answer-summary .answer-correct {
-  font-size: 1.05rem;
-  font-weight: bold;
+  font-size: clamp(1.3rem, 2.6vmin, 1.9rem);
+  font-weight: 800;
   color: var(--color-correct);
   margin: 0 0 4px;
+  line-height: 1.35;
 }
 
 .mascot-comment {
   display: flex;
-  gap: 12px;
+  gap: clamp(12px, 1.6vmin, 18px);
   align-items: flex-start;
-  margin-top: 8px;
+  margin-top: 10px;
 }
 
 .mascot-comment img {
-  width: 68px;
+  width: clamp(64px, 7vmin, 96px);
   height: auto;
   flex-shrink: 0;
   border-radius: 8px;
 }
 
 .mascot-comment .speech-bubble {
-  font-size: 1rem;
+  font-size: clamp(1.1rem, 2.2vmin, 1.6rem);
+  line-height: 1.5;
   background: #FFF3DC;
   border: 1px solid #F3DFA8;
 }
@@ -328,12 +336,13 @@ header.app-header p {
 .next-btn, .primary-btn {
   display: inline-block;
   margin-top: 16px;
-  padding: 10px 22px;
+  padding: clamp(12px, 1.6vmin, 18px) clamp(28px, 3vw, 40px);
   background: var(--color-main);
   color: #fff;
   border: none;
   border-radius: 999px;
-  font-size: 0.95rem;
+  font-size: clamp(1.15rem, 2vmin, 1.6rem);
+  font-weight: 700;
   cursor: pointer;
   text-decoration: none;
 }
@@ -344,7 +353,7 @@ header.app-header p {
 
 .source-note {
   margin-top: 10px;
-  font-size: 0.75rem;
+  font-size: clamp(0.9rem, 1.4vmin, 1.1rem);
   color: #9a8b74;
 }
 
@@ -352,20 +361,24 @@ header.app-header p {
   text-align: center;
   background: var(--color-card);
   border-radius: var(--radius);
-  padding: 32px 20px;
+  padding: clamp(40px, 5vw, 72px) 20px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 
+.finish-screen p {
+  font-size: clamp(1.5rem, 2.2vw, 2.2rem);
+}
+
 .finish-screen .score {
-  font-size: 2rem;
-  font-weight: bold;
+  font-size: clamp(3.4rem, 6vw, 6rem);
+  font-weight: 800;
   color: var(--color-main-dark);
-  margin: 12px 0;
+  margin: 16px 0;
 }
 
 .back-link {
   display: inline-block;
   margin-top: 16px;
-  font-size: 0.85rem;
+  font-size: clamp(1.05rem, 1.3vw, 1.3rem);
   color: var(--color-accent);
 }
