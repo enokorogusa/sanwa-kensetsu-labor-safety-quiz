@@ -104,7 +104,7 @@
     q.choices.forEach(function (choice, i) {
       const btn = document.createElement("button");
       btn.className = "choice-btn";
-      btn.textContent = choice;
+      btn.textContent = ["①", "②", "③", "④", "⑤"][i] + "　" + choice;
       btn.addEventListener("click", function () { selectAnswer(i, q); });
       choicesEl.appendChild(btn);
     });

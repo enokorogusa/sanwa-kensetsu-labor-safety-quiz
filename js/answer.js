@@ -81,12 +81,12 @@
   if (!isCorrect) {
     const yourLine = document.createElement("p");
     yourLine.className = "answer-yours";
-    yourLine.textContent = "あなたの回答：" + q.choices[state.lastChoiceIndex];
+    yourLine.textContent = "あなたの回答：" + ["①", "②", "③", "④", "⑤"][state.lastChoiceIndex] + "　" + q.choices[state.lastChoiceIndex];
     answerSummary.appendChild(yourLine);
   }
   const correctLine = document.createElement("p");
   correctLine.className = "answer-correct";
-  correctLine.textContent = "正解：" + q.choices[q.answerIndex];
+  correctLine.textContent = "正解：" + ["①", "②", "③", "④", "⑤"][q.answerIndex] + "　" + q.choices[q.answerIndex];
   answerSummary.appendChild(correctLine);
 
   explanationText.textContent = q.explanation || "";
