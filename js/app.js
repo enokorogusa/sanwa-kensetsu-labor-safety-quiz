@@ -13,10 +13,31 @@
   document.getElementById("setTitle").textContent = "建設現場の労働災害クイズ";
   document.getElementById("setDesc").textContent = "労働災害の「死亡者数」「休業4日以上の死傷者数」がともに多い事故の型を中心に出題しています。";
 
-  const questions = shuffle(window.QUESTIONS || []).slice(0, QUESTIONS_PER_ROUND);
-  let index = 0;
-  let score = 0;
-  let answered = false;
+  const params = new URLSearchParams(window.location.search);
+  let step = params.get("step"); // null（新規開始） | "next"（次の問題） | "finish"（結果表示）
+
+  function startNewRound() {
+    const allQuestions = window.QUESTIONS || [];
+    const ids = shuffle(allQuestions).slice(0, QUESTIONS_PER_ROUND).map(function (q) { return q.id; });
+    const state = { ids: ids, index: 0, score: 0 };
+    window.QuizStorage.save(state);
+    return state;
+  }
+
+  let state = window.QuizStorage.load();
+
+  if (step === "next" && state) {
+    state.index++;
+    window.QuizStorage.save(state);
+  } else if (step === "finish" && state) {
+    // 保存済みのスコアをそのまま結果表示に使う
+  } else if (!step) {
+    state = startNewRound();
+  } else {
+    // sessionStorageが失われている等の想定外のケースは新規開始扱いにする
+    state = startNewRound();
+    step = null;
+  }
 
   const quizArea = document.getElementById("quizArea");
   const finishScreen = document.getElementById("finishScreen");
@@ -30,26 +51,13 @@
   const imageSourceLabel = window.CATEGORY_IMAGE_SOURCE_LABEL || "";
   const imageAccessedOn = window.CATEGORY_IMAGE_ACCESSED_ON || "";
   const choicesEl = document.getElementById("choices");
-  const questionView = document.getElementById("questionView");
-  const answerView = document.getElementById("answerView");
-  const questionRecap = document.getElementById("questionRecap");
-  const judgeBanner = document.getElementById("judgeBanner");
-  const answerSummary = document.getElementById("answerSummary");
-  const explanationText = document.getElementById("explanationText");
-  const sourceNote = document.getElementById("sourceNote");
-  const nextBtn = document.getElementById("nextBtn");
-  const mascotImage = document.getElementById("mascotImage");
 
-  const MASCOT_CORRECT = "ミチハロ君奈良観光中.png";
-  const MASCOT_WRONG = "回答ミチハロ君 (002).png";
+  function findQuestion(id) {
+    return (window.QUESTIONS || []).find(function (q) { return q.id === id; });
+  }
 
   function renderQuestion() {
-    answered = false;
-    questionView.style.display = "block";
-    answerView.style.display = "none";
-    window.scrollTo(0, 0);
-
-    if (questions.length === 0) {
+    if (!state.ids.length) {
       questionText.textContent = "この出題セットの問題データがまだ登録されていません。";
       choicesEl.innerHTML = "";
       progressLabel.textContent = "";
@@ -57,9 +65,9 @@
       return;
     }
 
-    const q = questions[index];
-    progressFill.style.width = Math.round((index / questions.length) * 100) + "%";
-    progressLabel.textContent = (index + 1) + " / " + questions.length + "問";
+    const q = findQuestion(state.ids[state.index]);
+    progressFill.style.width = Math.round((state.index / state.ids.length) * 100) + "%";
+    progressLabel.textContent = (state.index + 1) + " / " + state.ids.length + "問";
     categoryTag.textContent = q.category || "";
 
     const imageInfo = categoryImages[q.category];
@@ -97,71 +105,30 @@
       const btn = document.createElement("button");
       btn.className = "choice-btn";
       btn.textContent = choice;
-      btn.addEventListener("click", function () { selectAnswer(i); });
+      btn.addEventListener("click", function () { selectAnswer(i, q); });
       choicesEl.appendChild(btn);
     });
   }
 
-  function selectAnswer(i) {
-    if (answered) return;
-    answered = true;
-    const q = questions[index];
-
+  function selectAnswer(i, q) {
     const isCorrect = i === q.answerIndex;
-    if (isCorrect) score++;
-
-    questionRecap.textContent = q.question;
-
-    judgeBanner.textContent = isCorrect ? "○ 正解！" : "× 不正解";
-    judgeBanner.className = "judge-banner " + (isCorrect ? "correct" : "wrong");
-
-    mascotImage.src = isCorrect ? MASCOT_CORRECT : MASCOT_WRONG;
-    mascotImage.alt = isCorrect ? "ミチハロくん（正解）" : "ミチハロくん（不正解）";
-
-    if (isCorrect) {
-      answerSummary.innerHTML = "";
-      const correctLine = document.createElement("p");
-      correctLine.className = "answer-correct";
-      correctLine.textContent = "正解：" + q.choices[q.answerIndex];
-      answerSummary.appendChild(correctLine);
-    } else {
-      answerSummary.innerHTML = "";
-      const yourLine = document.createElement("p");
-      yourLine.className = "answer-yours";
-      yourLine.textContent = "あなたの回答：" + q.choices[i];
-      const correctLine = document.createElement("p");
-      correctLine.className = "answer-correct";
-      correctLine.textContent = "正解：" + q.choices[q.answerIndex];
-      answerSummary.appendChild(yourLine);
-      answerSummary.appendChild(correctLine);
-    }
-
-    explanationText.textContent = q.explanation || "";
-    sourceNote.textContent = q.source ? ("出典：" + q.source) : "";
-
-    nextBtn.textContent = (index === questions.length - 1) ? "結果を見る" : "次の問題へ";
-
-    questionView.style.display = "none";
-    answerView.style.display = "block";
-    window.scrollTo(0, 0);
-  }
-
-  function goNext() {
-    if (index < questions.length - 1) {
-      index++;
-      renderQuestion();
-    } else {
-      showFinish();
-    }
+    if (isCorrect) state.score++;
+    state.lastChoiceIndex = i;
+    state.lastCorrect = isCorrect;
+    window.QuizStorage.save(state);
+    window.location.href = "answer.html";
   }
 
   function showFinish() {
     quizArea.style.display = "none";
     finishScreen.style.display = "block";
-    document.getElementById("finalScore").textContent = score + " / " + questions.length + "問正解";
+    document.getElementById("finalScore").textContent = state.score + " / " + state.ids.length + "問正解";
   }
 
-  nextBtn.addEventListener("click", goNext);
-
-  renderQuestion();
+  if (step === "finish") {
+    showFinish();
+  } else {
+    renderQuestion();
+    window.scrollTo(0, 0);
+  }
 })();

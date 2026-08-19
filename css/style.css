@@ -23,14 +23,14 @@ body {
 }
 
 .page {
-  max-width: 640px;
+  max-width: 1040px;
   margin: 0 auto;
-  padding: 24px 16px 64px;
+  padding: 20px 16px 32px;
 }
 
 header.app-header {
   text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: 14px;
 }
 
 header.app-header h1 {
@@ -146,11 +146,24 @@ header.app-header p {
 }
 
 .question-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
   background: var(--color-card);
   border-radius: var(--radius);
-  padding: 20px;
+  padding: 18px 20px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);
   margin-bottom: 16px;
+}
+
+.card-media {
+  flex: 0 0 250px;
+  width: 250px;
+}
+
+.card-content {
+  flex: 1;
+  min-width: 0;
 }
 
 .category-tag {
@@ -166,9 +179,8 @@ header.app-header p {
 .question-image {
   display: none;
   width: 100%;
-  max-width: 280px;
   height: auto;
-  margin: 0 auto;
+  margin: 0;
   border-radius: 12px;
   background: #FBF6EC;
   border: 1px solid #EEE0C8;
@@ -180,9 +192,19 @@ header.app-header p {
   display: none;
   font-size: 0.68rem;
   color: #9a8b74;
-  text-align: center;
-  margin: 6px 0 14px;
+  text-align: left;
+  margin: 6px 0 0;
   word-break: break-all;
+}
+
+@media (max-width: 560px) {
+  .question-card {
+    flex-direction: column;
+  }
+  .card-media {
+    flex: none;
+    width: 100%;
+  }
 }
 
 .image-credit a {
@@ -287,7 +309,7 @@ header.app-header p {
   display: flex;
   gap: 12px;
   align-items: flex-start;
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 .mascot-comment img {
