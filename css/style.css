@@ -268,20 +268,20 @@ header.app-header p {
 }
 
 .question-recap {
-  font-size: clamp(1rem, 1.8vmin, 1.3rem);
+  font-size: clamp(0.9rem, 1.5vmin, 1.15rem);
   color: #9a8b74;
   font-weight: 600;
-  margin: 0 0 12px;
+  margin: 0 0 8px;
   white-space: pre-wrap;
 }
 
 .judge-banner {
-  font-size: clamp(1.8rem, 4.5vmin, 3rem);
+  font-size: clamp(1.6rem, 4vmin, 2.6rem);
   font-weight: 800;
   text-align: center;
-  padding: clamp(10px, 1.8vmin, 18px) 16px;
+  padding: clamp(8px, 1.4vmin, 14px) 16px;
   border-radius: 16px;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .judge-banner.correct {
@@ -295,7 +295,7 @@ header.app-header p {
 }
 
 .answer-summary {
-  margin: 0 0 6px;
+  margin: 0 0 4px;
 }
 
 .answer-summary .answer-yours {
@@ -314,13 +314,13 @@ header.app-header p {
 
 .mascot-comment {
   display: flex;
-  gap: clamp(12px, 1.6vmin, 18px);
+  gap: clamp(10px, 1.3vmin, 14px);
   align-items: flex-start;
-  margin-top: 10px;
+  margin-top: 6px;
 }
 
 .mascot-comment img {
-  width: clamp(64px, 7vmin, 96px);
+  width: clamp(128px, 14vmin, 192px);
   height: auto;
   flex-shrink: 0;
   border-radius: 8px;
@@ -328,7 +328,9 @@ header.app-header p {
 
 .mascot-comment .speech-bubble {
   font-size: clamp(1.1rem, 2.2vmin, 1.6rem);
-  line-height: 1.5;
+  font-weight: 700;
+  line-height: 1.4;
+  padding: clamp(8px, 1.2vmin, 14px) clamp(12px, 1.6vmin, 18px);
   background: #FFF3DC;
   border: 1px solid #F3DFA8;
 }
@@ -352,7 +354,7 @@ header.app-header p {
 }
 
 .source-note {
-  margin-top: 10px;
+  margin-top: 6px;
   font-size: clamp(0.9rem, 1.4vmin, 1.1rem);
   color: #9a8b74;
 }
