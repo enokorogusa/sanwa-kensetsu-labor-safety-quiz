@@ -382,7 +382,7 @@ header.app-header p {
   top: 50%;
   left: 0;
   width: var(--mw);
-  aspect-ratio: 1000 / 330;
+  aspect-ratio: 1000 / 357;
   background-image: url("../assets/mascot-walk-banner.png");
   background-repeat: no-repeat;
   background-size: contain;
