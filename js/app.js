@@ -10,6 +10,15 @@
     return result;
   }
 
+  function formatQuestionText(text) {
+    for (let i = text.length - 2; i >= 0; i--) {
+      if (text[i] === "。") {
+        return text.slice(0, i + 1) + "\n\n" + text.slice(i + 1).trim();
+      }
+    }
+    return text;
+  }
+
   document.getElementById("setTitle").textContent = "建設現場の労働災害クイズ";
   document.getElementById("setDesc").textContent = "労働災害の「死亡者数」「休業4日以上の死傷者数」がともに多い事故の型を中心に出題しています。";
 
@@ -98,7 +107,7 @@
       imageCredit.textContent = "";
     }
 
-    questionText.textContent = q.question;
+    questionText.textContent = formatQuestionText(q.question);
 
     choicesEl.innerHTML = "";
     q.choices.forEach(function (choice, i) {

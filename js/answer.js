@@ -1,4 +1,13 @@
 (function () {
+  function formatQuestionText(text) {
+    for (let i = text.length - 2; i >= 0; i--) {
+      if (text[i] === "。") {
+        return text.slice(0, i + 1) + "\n\n" + text.slice(i + 1).trim();
+      }
+    }
+    return text;
+  }
+
   document.getElementById("setTitle").textContent = "建設現場の労働災害クイズ";
   document.getElementById("setDesc").textContent = "回答結果";
 
@@ -68,7 +77,7 @@
     imageCredit.textContent = "";
   }
 
-  questionRecap.textContent = q.question;
+  questionRecap.textContent = formatQuestionText(q.question);
 
   const isCorrect = state.lastCorrect;
   judgeBanner.textContent = isCorrect ? "○ 正解！" : "× 不正解";
