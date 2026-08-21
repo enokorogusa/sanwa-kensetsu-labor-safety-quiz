@@ -98,7 +98,18 @@
   correctLine.textContent = "正解：" + ["①", "②", "③", "④", "⑤"][q.answerIndex] + "　" + q.choices[q.answerIndex];
   answerSummary.appendChild(correctLine);
 
-  explanationText.textContent = q.explanation || "";
+  explanationText.innerHTML = "";
+  const mainExplanation = document.createElement("p");
+  mainExplanation.textContent = q.explanation || "";
+  explanationText.appendChild(mainExplanation);
+
+  if (!isCorrect && q.whyWrong && q.whyWrong[state.lastChoiceIndex]) {
+    const whyWrongP = document.createElement("p");
+    whyWrongP.className = "why-wrong-note";
+    whyWrongP.textContent = q.whyWrong[state.lastChoiceIndex];
+    explanationText.appendChild(whyWrongP);
+  }
+
   sourceNote.textContent = q.source ? ("出典：" + q.source) : "";
 
   const isLast = state.index === state.ids.length - 1;

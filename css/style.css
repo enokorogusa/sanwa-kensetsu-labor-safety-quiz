@@ -336,6 +336,14 @@ header.app-header p {
   border: 1px solid #F3DFA8;
 }
 
+.mascot-comment .speech-bubble p {
+  margin: 0;
+}
+
+.mascot-comment .speech-bubble p + p {
+  margin-top: 0.5em;
+}
+
 .next-btn, .primary-btn {
   display: inline-block;
   margin-top: 16px;
