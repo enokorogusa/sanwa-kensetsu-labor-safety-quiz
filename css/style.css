@@ -394,13 +394,13 @@ header.app-header p {
   background-image: url("../assets/mascot-walk-banner.png");
   background-repeat: no-repeat;
   background-size: contain;
-  animation: mascot-walk 9s linear infinite;
+  animation: mascot-walk 12s linear infinite;
   pointer-events: none;
 }
 
 @keyframes mascot-walk {
-  from { transform: translateY(-50%) translateX(50vw); }
-  to { transform: translateY(-50%) translateX(calc(-50vw - var(--mw))); }
+  from { transform: translateY(-50%) translateX(100vw); }
+  to { transform: translateY(-50%) translateX(calc(-100vw - var(--mw))); }
 }
 
 .finish-screen p {
